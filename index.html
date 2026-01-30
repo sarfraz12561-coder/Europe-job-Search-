@@ -1,53 +1,358 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe Job Search | Truck Drivers</title>
+    <title>Europe Job Search | Premium Trucking Careers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        .gold-glow { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); border: 1px solid #ffd700; }
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80'); background-size: cover; }
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
+        }
+        
+        .country-card {
+            background-color: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #ffd700 0%, #ff8c00 100%);
+        }
+        
+        .country-card:hover {
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
+        }
+        
+        .card-image-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+        }
+        
+        .btn-primary {
+            background-color: #ff8c00;
+            color: white;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff7b00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.3);
+        }
+        
+        .gold-accent {
+            color: #ffd700;
+        }
+        
+        .glassmorphic {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .input-glass {
+            background: rgba(26, 26, 26, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .input-glass:focus {
+            border-color: #ff8c00;
+            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+            outline: none;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.5), transparent);
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
-<body class="bg-[#0a0a0a] text-white font-sans">
-    <nav class="p-5 flex justify-between items-center border-b border-gray-800">
-        <h1 class="text-2xl font-bold text-[#ffd700]">Europe Job Search</h1>
-        <div class="space-x-4">
-            <a href="#" class="hover:text-[#ffd700]">Home</a>
-            <a href="#" class="hover:text-[#ffd700]">Countries</a>
-            <a href="#" class="bg-[#ff8c00] px-4 py-2 rounded text-black font-bold">Contact</a>
-        </div>
-    </nav>
-
-    <header class="hero-bg h-[400px] flex flex-col justify-center items-center text-center p-10">
-        <h2 class="text-4xl font-bold mb-4 text-[#ffd700]">Your Journey, Our Mission: Elite Trucking Careers</h2>
-        <p class="mb-6 text-gray-300">Exclusive Opportunities for Professional Truck Drivers</p>
-        <div class="flex bg-white/10 backdrop-blur-md p-2 rounded-lg gold-glow">
-            <input type="text" placeholder="License Category (C+E, ADR)..." class="bg-transparent p-2 outline-none w-64">
-            <button class="bg-[#ff8c00] px-6 py-2 rounded font-bold text-black">Search</button>
+<body class="bg-black">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-black/90 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-black tracking-tight">
+                    <span class="text-white">EUROPE</span>
+                    <span class="gold-accent">JOB SEARCH</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white font-semibold">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-semibold">Countries</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-semibold">Contact</a>
+                    <button class="btn-primary px-6 py-2 rounded-lg">
+                        Driver Portal
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="p-10">
-        <h3 class="text-3xl font-bold mb-8 text-center">Exclusive Driving Routes</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-[#1a1a1a] p-5 rounded-xl gold-glow text-center">
-                <img src="https://flagcdn.com/w160/pl.png" class="w-16 mx-auto mb-4" alt="Poland">
-                <h4 class="text-2xl font-bold">Poland</h4>
-                <p class="text-gray-400 mt-2">Specialized Routes Available</p>
-            </div>
-            <div class="bg-[#1a1a1a] p-5 rounded-xl gold-glow text-center border-orange-500">
-                <img src="https://flagcdn.com/w160/hu.png" class="w-16 mx-auto mb-4" alt="Hungary">
-                <h4 class="text-2xl font-bold text-orange-400">Hungary</h4>
-                <p class="text-gray-300 mt-2">High Demand for Trailers</p>
-            </div>
-            <div class="bg-[#1a1a1a] p-5 rounded-xl gold-glow text-center">
-                <img src="https://flagcdn.com/w160/ro.png" class="w-16 mx-auto mb-4" alt="Romania">
-                <h4 class="text-2xl font-bold">Romania</h4>
-                <p class="text-gray-400 mt-2">New Career Paths</p>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 z-0 hero-bg"></div>
+        <div class="absolute inset-0 z-0 hero-overlay"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 py-20">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-center">
+                    <span class="block text-white">ELITE TRUCKING</span>
+                    <span class="block gold-accent">CAREERS IN EUROPE</span>
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-10 text-center font-medium">
+                    Premium opportunities for professional drivers across Europe's most dynamic markets
+                </p>
+                
+                <!-- Glassmorphic Search Bar -->
+                <div class="glassmorphic rounded-2xl p-8 mb-12">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    placeholder="Search for premium truck driver positions..." 
+                                    class="w-full input-glass pl-12 pr-4 py-4 rounded-xl text-lg"
+                                >
+                            </div>
+                        </div>
+                        <button class="btn-primary px-10 py-4 rounded-xl font-bold text-lg">
+                            SEARCH
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 flex flex-wrap gap-3 justify-center">
+                        <span class="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-lg text-sm">C+E License</span>
+                        <span class="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-lg text-sm">ADR Certified</span>
+                        <span class="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-lg text-sm">International Routes</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-12">
+                    <div class="text-center">
+                        <div class="text-3xl font-black gold-accent">650+</div>
+                        <div class="text-gray-400">Premium Positions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black gold-accent">6</div>
+                        <div class="text-gray-400">Countries</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black gold-accent">120+</div>
+                        <div class="text-gray-400">Partner Companies</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Country Cards Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="text-white">EXCLUSIVE</span>
+                    <span class="gold-accent"> DRIVING ROUTES</span>
+                </h2>
+                <p class="text-xl text-gray-400 font-medium">
+                    Premium opportunities across Europe's most dynamic logistics markets
+                </p>
+            </div>
+            
+            <!-- Three Country Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Poland Card -->
+                <div class="country-card rounded-2xl overflow-hidden">
+                    <div class="h-80 relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            alt="Poland Trucking"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 card-image-overlay"></div>
+                        <div class="absolute top-6 right-6">
+                            <div class="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                                <span class="text-2xl">🇵🇱</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-3xl font-black text-white">POLAND</h3>
+                            <p class="text-gray-300 mt-2">Warsaw • Krakow • Wroclaw</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-lg font-bold gold-accent">156+ Positions</div>
+                            <div class="text-lg font-semibold">€2,500+</div>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            Central European logistics hub with extensive international route networks connecting Western Europe to Eastern markets.
+                        </p>
+                        <button class="btn-primary w-full py-3 rounded-lg font-bold">
+                            VIEW POSITIONS
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hungary Card -->
+                <div class="country-card rounded-2xl overflow-hidden">
+                    <div class="h-80 relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1561626423-6f7ec6b7e5e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
+                            alt="Hungary Trucking"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 card-image-overlay"></div>
+                        <div class="absolute top-6 right-6">
+                            <div class="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                                <span class="text-2xl">🇭🇺</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-3xl font-black text-white">HUNGARY</h3>
+                            <p class="text-gray-300 mt-2">Budapest • Debrecen • Szeged</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-lg font-bold gold-accent">125+ Positions</div>
+                            <div class="text-lg font-semibold">€2,300+</div>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            Strategic Danube region location with growing cross-border opportunities and modern logistics infrastructure.
+                        </p>
+                        <button class="btn-primary w-full py-3 rounded-lg font-bold">
+                            VIEW POSITIONS
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Romania Card -->
+                <div class="country-card rounded-2xl overflow-hidden">
+                    <div class="h-80 relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                            alt="Romania Trucking"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 card-image-overlay"></div>
+                        <div class="absolute top-6 right-6">
+                            <div class="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                                <span class="text-2xl">🇷🇴</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-3xl font-black text-white">ROMANIA</h3>
+                            <p class="text-gray-300 mt-2">Bucharest • Cluj • Timișoara</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-lg font-bold gold-accent">98+ Positions</div>
+                            <div class="text-lg font-semibold">€2,100+</div>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            Black Sea logistics gateway with expanding European transport networks and strategic cross-border routes.
+                        </p>
+                        <button class="btn-primary w-full py-3 rounded-lg font-bold">
+                            VIEW POSITIONS
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Divider -->
+            <div class="section-divider my-24"></div>
+            
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h3 class="text-3xl md:text-4xl font-black mb-8">
+                    <span class="text-white">READY TO DRIVE YOUR</span>
+                    <span class="gold-accent"> CAREER FORWARD?</span>
+                </h3>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Join thousands of professional drivers who have found their perfect European trucking career through our platform.
+                </p>
+                <button class="btn-primary px-12 py-4 rounded-xl text-xl font-bold">
+                    START YOUR JOURNEY TODAY
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-black mb-4">
+                        <span class="text-white">EUROPE</span>
+                        <span class="gold-accent">JOB SEARCH</span>
+                    </div>
+                    <p class="text-gray-400 max-w-md">
+                        Europe's premier platform connecting professional truck drivers with premium opportunities across the continent.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-8 mb-6">
+                        <a href="#" class="text-gray-400 hover:text-white font-semibold">Home</a>
+                        <a href="#" class="text-gray-400 hover:text-white font-semibold">Countries</a>
+                        <a href="#" class="text-gray-400 hover:text-white font-semibold">Contact</a>
+                        <a href="#" class="text-gray-400 hover:text-white font-semibold">Privacy</a>
+                    </div>
+                    <p class="text-gray-500 text-sm">
+                        © 2024 Europe Job Search. All rights reserved. Premium Trucking Careers Platform.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
